@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desi Tadka - Aapki Manpasand Khana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Light background */
+            color: #333;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* Header & Search Bar */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 8px 15px;
+            margin: 0 10px;
+        }
+
+        .search-bar i {
+            color: #777;
+            margin-right: 10px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            width: 100%;
+            font-size: 16px;
+            color: #555;
+            outline: none;
+        }
+
+        .search-bar input::placeholder {
+            color: #999;
+        }
+
+        .mic-icon {
+            color: #ff6e40; /* Orange color for mic */
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Ecosaver Banner */
+        .ecosaver-banner {
+            background-color: #e0f2f7; /* Light blue */
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            color: #00796b; /* Darker green for text */
+            font-weight: 500;
+        }
+
+        .ecosaver-banner i {
+            margin-right: 10px;
+            color: #00796b;
+        }
+
+        /* Section Headings */
+        .section-heading {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin: 25px 0 15px;
+            padding-left: 10px;
+        }
+
+        /* Food Card Grid */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Responsive grid */
+            gap: 20px;
+            padding-bottom: 30px; /* Space at bottom */
+        }
+
+        .food-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-align: left;
+            position: relative;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .food-card-img {
+            width: 100%;
+            height: 120px; /* Fixed height for image */
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .add-to-cart-btn {
+            position: absolute;
+            top: 95px; /* Position over the image */
+            right: 10px;
+            background-color: #00a877; /* Green button */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: background-color 0.2s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #008f65;
+        }
+
+        .food-details {
+            padding: 10px 12px;
+        }
+
+        .food-name {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        .food-prices {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        .discounted-price {
+            color: #e67e22; /* Orange for new price */
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        .food-rating {
+            display: flex;
+            align-items: center;
+            color: #27ae60; /* Green for rating */
+            font-weight: 500;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .food-rating i {
+            font-size: 12px;
+            margin-right: 4px;
+        }
+
+        .restaurant-name {
+            color: #777;
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        /* Fast Delivery Section - Similar, but with specific restaurant items */
+        .restaurant-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-align: left;
+            position: relative;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+
+        .restaurant-card-img {
+            width: 100%;
+            height: 150px; /* Taller image for fast delivery cards */
+            object-fit: cover;
+        }
+
+        .offer-badge {
+            position: absolute;
+            bottom: 8px; /* Position at bottom of image */
+            left: 0;
+            background-color: #d32f2f; /* Red for offers */
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .fast-delivery-items-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .restaurant-details {
+            padding: 12px;
+        }
+
+        .restaurant-name-main {
+            font-weight: 700;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .restaurant-info {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .restaurant-info .rating {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            color: #27ae60;
+            font-weight: 500;
+        }
+
+        .restaurant-info .rating i {
+            margin-right: 5px;
+            font-size: 13px;
+        }
+
+        /* What's on your mind? */
+        .mind-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .mind-item {
+            text-align: center;
+            width: 80px; /* Fixed width for icon */
+        }
+
+        .mind-item-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease-in-out;
+        }
+        .mind-item-img:hover {
+            transform: translateY(-3px);
+        }
+
+        .mind-item-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+            margin-top: 8px;
+        }
+
+        /* More on Swiggy */
+        .more-on-swiggy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .more-item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
+            font-weight: 500;
+            color: #444;
+            transition: transform 0.2s ease-in-out;
+        }
+        .more-item:hover {
+            transform: scale(1.02);
+        }
+
+        /* Basic JS Styling */
+        .added-to-cart-feedback {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 2000;
+        }
+        .added-to-cart-feedback.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+        }
+
+        .navbar-left {
+            margin-left: 30px;
+        }
+
+        .location-select {
+            padding: 6px 16px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+            background: #f8f8f8;
+            color: #333;
+        }
+
+        .navbar-right {
+            margin-right: 30px;
+            display: flex;
+            gap: 18px;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #ff6e40;
+        }
+
+        /* Personal Header */
+        .personal-header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 18px 0 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .personal-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 0 15px;
+        }
+
+        .personal-logo {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: #f8f8f8;
+            border: 2px solid #eee;
+            margin-right: 10px;
+        }
+
+        .personal-title {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff6e40;
+            letter-spacing: 1px;
+        }
+
+        .personal-subtitle {
+            margin: 0;
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: #fff;
+            border-top: 1px solid #eee;
+            padding: 18px 0 10px 0;
+            margin-top: 40px;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.03);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-social {
+            margin-bottom: 10px;
+        }
+
+        .footer-social a {
+            color: #ff6e40;
+            margin: 0 10px;
+            font-size: 1.6rem;
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: #333;
+        }
+
+        .footer-text {
+            color: #555;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Go to Top Button */
+        #goTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            background: #ff6e40;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: background 0.2s;
+        }
+
+        #goTopBtn:hover {
+            background: #333;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .food-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            .food-card-img {
+                height: 100px;
+            }
+            .add-to-cart-btn {
+                top: 75px;
+                width: 25px;
+                height: 25px;
+                font-size: 18px;
+            }
+            .food-name {
+                font-size: 15px;
+            }
+            .discounted-price {
+                font-size: 16px;
+            }
+            .original-price {
+                font-size: 13px;
+            }
+            .restaurant-name {
+                font-size: 11px;
+            }
+            .restaurant-card-img {
+                height: 120px;
+            }
+            .restaurant-name-main {
+                font-size: 16px;
+            }
+            .restaurant-info {
+                font-size: 13px;
+            }
+            .mind-item {
+                width: 70px;
+            }
+            .mind-item-img {
+                width: 60px;
+                height: 60px;
+            }
+            .mind-item-text {
+                font-size: 13px;
+            }
+            .navbar-left, .navbar-right {
+                margin: 0 10px;
+            }
+            .nav-link {
+                font-size: 14px;
+            }
+            .personal-title {
+                font-size: 1.5rem;
+            }
+            .personal-subtitle {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-bar {
+                padding: 6px 10px;
+            }
+            .search-bar input {
+                font-size: 14px;
+            }
+            .food-grid {
+                grid-template-columns: 1fr 1fr; /* 2 columns on very small screens */
+            }
+            .section-heading {
+                font-size: 20px;
+            }
+            .ecosaver-banner {
+                font-size: 14px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .navbar {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            .navbar-left, .navbar-right {
+                width: 100%;
+                justify-content: center;
+                margin: 5px 0;
+            }
+            .navbar-right {
+                gap: 10px;
+            }
+            .personal-header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .personal-logo {
+                margin-bottom: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="personal-header">
+        <div class="personal-header-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Food Logo" class="personal-logo">
+            <div>
+                <h1 class="personal-title">Desi Tadka</h1>
+                <p class="personal-subtitle">Created by Bhanu Pratap Singh</p>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <select class="location-select">
+                <option value="delhi">Delhi</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="bangalore">Bangalore</option>
+                <option value="kolkata">Kolkata</option>
+                <option value="lucknow">Lucknow</option>
+            </select>
+        </div>
+        <div class="navbar-right">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="mycart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> My Cart</a>
+            <div id="authLink" class="nav-link"><i class="fas fa-user"></i> Login</div>
+        </div>
+    </nav>
+
+    <div class="header">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search for 'Biryani'">
+            <i class="fas fa-microphone mic-icon"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="ecosaver-banner">
+            <i class="fas fa-check-circle"></i>
+            <span>Free delivery with ecosaver mode</span>
+        </div>
+
+        <h2 class="section-heading">Aapke Mann Mein Kya Hai?</h2>
+        <div class="mind-grid">
+            <div class="mind-item">
+                <img src="https://placehold.co/70x70/FFCC00/black?text=Specials" alt="Sawan Specials" class="mind-item-img">
+                <div class="mind-item-text">Sawan Specials</div>
+            </div>
+            <div class="mind-item">
+                <img src="https://placehold.co/70x70/FFCC00/black?text=Pizzas" alt="Pizzas" class="mind-item-img">
+                <div class="mind-item-text">Pizzas</div>
+            </div>
+            <div class="mind-item">
+                <img src="https://placehold.co/70x70/FFCC00/black?text=Momos" alt="Momos" class="mind-item-img">
+                <div class="mind-item-text">Momos</div>
+            </div>
+            <div class="mind-item">
+                <img src="https://placehold.co/70x70/FFCC00/black?text=Rolls" alt="Rolls" class="mind-item-img">
+                <div class="mind-item-text">Rolls</div>
+            </div>
+            <div class="mind-item">
+                <img src="https://placehold.co/70x70/FFCC00/black?text=Biryani" alt="Biryani" class="mind-item-img">
+                <div class="mind-item-text">Biryani</div>
+            </div>
+            <div class="mind-item">
+                <img src="https://placehold.co/70x70/FFCC00/black?text=Burgers" alt="Burger" class="mind-item-img">
+                <div class="mind-item-text">Burgers</div>
+            </div>
+            <div class="mind-item">
+                <img src="https://placehold.co/70x70/FFCC00/black?text=Mithai" alt="Sweets" class="mind-item-img">
+                <div class="mind-item-text">Mithai</div>
+            </div>
+             <div class="mind-item">
+                <img src="https://placehold.co/70x70/FFCC00/black?text=Desserts" alt="Desserts" class="mind-item-img">
+                <div class="mind-item-text">Desserts</div>
+            </div>
+        </div>
+
+        <h2 class="section-heading">Aapke Liye Khas</h2>
+        <div class="food-grid" id="recommendedFoodGrid">
+            </div>
+
+        <h2 class="section-heading">Tez Delivery - Fast Food Favorites</h2>
+        <div class="food-grid" id="fastDeliveryFoodGrid">
+            </div>
+
+        <h2 class="section-heading">Desi Tadka Par Aur Bhi</h2>
+        <div class="more-on-swiggy-grid">
+            <div class="more-item">Healthy Food</div>
+            <div class="more-item">Guilty Pleasures</div>
+            <div class="more-item">Budget Bites</div>
+            <div class="more-item">Premium Dining</div>
+            <div class="more-item">Breakfast & Brunch</div>
+            <div class="more-item">Late Night Cravings</div>
+            <div class="more-item">Cafes & Coffee</div>
+            <div class="more-item">Ice Cream & Desserts</div>
+        </div>
+
+    </div> <div class="added-to-cart-feedback" id="cartFeedback">
+        Item added to cart!
+    </div>
+
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-social">
+            <a href="https://instagram.com/bhanu05.royal" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com/in/bhanu-pratap-singh-370201300" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:bd4106743@gmail.com" title="Gmail">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="tel:+917229932824" title="Contact Us">
+                <i class="fas fa-phone"></i>
+            </a>
+        </div>
+        <div class="footer-text">
+            &copy; 2024 Bhanu Pratap Singh. All rights reserved.
+            <br><a href="admin-login.html" style="color: #007bff; text-decoration: none; font-size: 0.9em; margin-top: 5px; display: inline-block;">Admin Panel</a>
+        </div>
+    </div>
+</footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'});" id="goTopBtn" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+    <script>
+        // Helper function to get cart from localStorage
+        function getCart() {
+            const cartString = localStorage.getItem('desiTadkaCart');
+            return cartString ? JSON.parse(cartString) : [];
+        }
+
+        // Helper function to save cart to localStorage
+        function saveCart(cart) {
+            localStorage.setItem('desiTadkaCart', JSON.stringify(cart));
+        }
+
+        // Function to update auth link based on login status
+        function updateAuthLink() {
+            const authLinkDiv = document.getElementById('authLink');
+            const loggedInUser = localStorage.getItem('loggedInUser'); // Get user from localStorage
+
+            if (loggedInUser) {
+                const user = JSON.parse(loggedInUser);
+                // Ensure the 'nav-link' class is on the <a> tag inside authLinkDiv
+                authLinkDiv.innerHTML = `<a href="profile.html" class="nav-link"><i class="fas fa-user-circle"></i> ${user.fullName || user.email.split('@')[0]}</a>`;
+                // If the parent div previously had 'nav-link' class, remove it now.
+                // This prevents styling conflicts if you intended the <a> tag to control styling.
+                authLinkDiv.classList.remove('nav-link');
+            } else {
+                // If no user logged in, show "Login"
+                authLinkDiv.innerHTML = `<a href="login.html" class="nav-link"><i class="fas fa-user"></i> Login</a>`;
+                // Ensure the parent div has 'nav-link' class if it was removed
+                authLinkDiv.classList.add('nav-link');
+            }
+        }
+
+        // Helper functions to get data from localStorage (populated by admin dashboard)
+        // IMPORTANT: These default images will ONLY load if localStorage is empty for 'adminRestaurants'/'adminProducts'.
+        // Once you add/edit via Admin Dashboard, those images will be used.
+        function getRestaurants() {
+            let restaurants = JSON.parse(localStorage.getItem('adminRestaurants') || '[]');
+            if (restaurants.length === 0) { // Only initialize if localStorage is empty
+                restaurants = [
+                    { id: 'rest1', name: 'McDonald\'s', rating: 4.2, minTime: 15, maxTime: 20, cuisines: 'Burgers, Fast Food', imgUrl: 'https://placehold.co/400x200/FFCC00/white?text=McDonalds' },
+                    { id: 'rest2', name: 'Ram Bhojnalaya', rating: 4.5, minTime: 20, maxTime: 30, cuisines: 'North Indian, Thali', imgUrl: 'https://placehold.co/400x200/ADD8E6/darkblue?text=Ram+Bhojnalaya' },
+                    { id: 'rest3', name: 'Om Fast Food', rating: 3.9, minTime: 10, maxTime: 15, cuisines: 'Snacks, Street Food', imgUrl: 'https://placehold.co/400x200/F08080/white?text=Om+Fast+Food' },
+                    { id: 'rest4', name: 'Dominos Pizza', rating: 4.3, minTime: 20, maxTime: 25, cuisines: 'Pizzas, Fast Food', imgUrl: 'https://placehold.co/400x200/800080/white?text=Dominos+Pizza' }
+                ];
+                saveRestaurants(restaurants); // Save default
+            }
+            return restaurants;
+        }
+
+        function getProducts() {
+            let products = JSON.parse(localStorage.getItem('adminProducts') || '[]');
+            if (products.length === 0) { // Only initialize if localStorage is empty
+                products = [
+                    { id: 'prod1', restaurantId: 'rest1', name: 'McAloo Tikki Burger', originalPrice: 100, discountedPrice: 79, rating: 4.1, ratingCount: 120, imgUrl: 'https://placehold.co/150x120/FFD700/black?text=McAloo+Tikki' },
+                    { id: 'prod2', restaurantId: 'rest1', name: 'McChicken Meal', originalPrice: 300, discountedPrice: 249, rating: 4.3, ratingCount: 180, imgUrl: 'https://placehold.co/150x120/A52A2A/white?text=McChicken+Meal' },
+                    { id: 'prod3', restaurantId: 'rest2', name: 'Paneer Thali', originalPrice: 280, discountedPrice: 220, rating: 4.6, ratingCount: 90, imgUrl: 'https://placehold.co/150x120/8B4513/white?text=Paneer+Thali' },
+                    { id: 'prod4', restaurantId: 'rest2', name: 'Dal Makhani Combo', originalPrice: 250, discountedPrice: 199, rating: 4.4, ratingCount: 75, imgUrl: 'https://placehold.co/150x120/6A5ACD/white?text=Dal+Makhani' },
+                    { id: 'prod5', restaurantId: 'rest3', name: 'Veg Chowmein', originalPrice: 120, discountedPrice: 99, rating: 3.8, ratingCount: 200, imgUrl: 'https://placehold.co/150x120/008000/white?text=Chowmein' },
+                    { id: 'prod6', restaurantId: 'rest3', name: 'Paneer Pakoda', originalPrice: 80, discountedPrice: 65, rating: 4.0, ratingCount: 150, imgUrl: 'https://placehold.co/150x120/800000/white?text=Paneer+Pakoda' },
+                    { id: 'prod7', restaurantId: 'rest4', name: 'Farmhouse Pizza (Med)', originalPrice: 450, discountedPrice: 399, rating: 4.3, ratingCount: 250, imgUrl: 'https://placehold.co/150x120/FF4500/white?text=Farmhouse+Pizza' }
+                ];
+                localStorage.setItem('adminProducts', JSON.stringify(products)); // Save default
+            }
+            return products;
+        }
+
+
+        // Function to render Food Cards
+        function renderFoodCards() {
+            const products = getProducts();
+            const restaurants = getRestaurants();
+
+            const recommendedGrid = document.getElementById('recommendedFoodGrid');
+            const fastDeliveryGrid = document.getElementById('fastDeliveryFoodGrid');
+
+            recommendedGrid.innerHTML = ''; // Clear existing cards
+            fastDeliveryGrid.innerHTML = ''; // Clear existing cards
+
+            // Filter products and assign to grids (example logic)
+            products.forEach(product => {
+                const restaurant = restaurants.find(r => r.id === product.restaurantId);
+                if (!restaurant) return; // Skip if restaurant not found
+
+                const foodCardHTML = `
+                    <div class="food-card" 
+                         data-food-id="${product.id}" 
+                         data-food-name="${product.name}" 
+                         data-food-price="${product.discountedPrice}" 
+                         data-food-img="${product.imgUrl}">
+                        <img src="${product.imgUrl}" alt="${product.name}" class="food-card-img">
+                        <button class="add-to-cart-btn"><i class="fas fa-plus"></i></button>
+                        <div class="food-details">
+                            <div class="food-name">${product.name}</div>
+                            <div class="food-prices">
+                                <span class="original-price">₹${product.originalPrice.toFixed(2)}</span>
+                                <span class="discounted-price">₹${product.discountedPrice.toFixed(2)}</span>
+                            </div>
+                            <div class="food-rating">
+                                <i class="fas fa-star"></i> ${product.rating} (${product.ratingCount})
+                            </div>
+                            <div class="restaurant-name">${restaurant.name}</div>
+                        </div>
+                    </div>
+                `;
+                recommendedGrid.insertAdjacentHTML('beforeend', foodCardHTML);
+            });
+
+            // Populate Fast Delivery based on restaurant data
+            restaurants.forEach(rest => {
+                 const fastCardHTML = `
+                    <div class="restaurant-card" 
+                         data-food-id="${rest.id}" 
+                         data-food-name="${rest.name}" 
+                         data-food-price="0" 
+                         data-food-img="${rest.imgUrl}">
+                        <img src="${rest.imgUrl}" alt="${rest.name}" class="restaurant-card-img">
+                        <span class="fast-delivery-items-tag">ITEMS FROM ₹${(Math.random() * 50 + 50).toFixed(0)}</span>
+                        <div class="restaurant-details">
+                            <div class="restaurant-name-main">${rest.name}</div>
+                            <div class="restaurant-info">
+                                <span class="rating"><i class="fas fa-star"></i> ${rest.rating}</span>
+                                <span>• ${rest.minTime}-${rest.maxTime} mins</span>
+                            </div>
+                            <div class="restaurant-name">${rest.cuisines}</div>
+                        </div>
+                    </div>
+                `;
+                fastDeliveryGrid.insertAdjacentHTML('beforeend', fastCardHTML);
+            });
+
+            // Re-attach event listeners for "Add to Cart" buttons
+            attachAddToCartListeners();
+        }
+
+        // Attach event listeners to dynamically created "Add to Cart" buttons
+        function attachAddToCartListeners() {
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                // Remove existing listener to prevent duplicates when re-rendering
+                button.removeEventListener('click', handleAddToCartClick); 
+                button.addEventListener('click', handleAddToCartClick);
+            });
+        }
+
+        function handleAddToCartClick(event) {
+            event.stopPropagation(); // Prevent card click event if any
+            const foodCard = this.closest('.food-card, .restaurant-card');
+            
+            const foodId = foodCard.dataset.foodId;
+            const foodName = foodCard.dataset.foodName;
+            const foodPrice = parseFloat(foodCard.dataset.foodPrice); // Ensure price is a number
+            const foodImg = foodCard.dataset.foodImg || foodCard.querySelector('img').src; // Get image URL
+
+            let cart = getCart();
+            const existingItem = cart.find(item => item.id === foodId);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: foodId,
+                    name: foodName,
+                    price: foodPrice,
+                    image: foodImg,
+                    quantity: 1
+                });
+            }
+            saveCart(cart);
+
+            // Show feedback
+            const feedbackDiv = document.getElementById('cartFeedback');
+            feedbackDiv.textContent = `${foodName} added to cart!`;
+            feedbackDiv.classList.add('show');
+
+            setTimeout(() => {
+                feedbackDiv.classList.remove('show');
+            }, 1500); // Hide after 1.5 seconds
+        }
+
+        // 2. Simple Search Functionality (Frontend Filter)
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            const allFoodCards = document.querySelectorAll('.food-card');
+            const allRestaurantCards = document.querySelectorAll('.restaurant-card'); // Fast Delivery
+
+            // Filter main food items
+            allFoodCards.forEach(card => {
+                const foodName = card.dataset.foodName.toLowerCase();
+                const restaurantName = card.querySelector('.restaurant-name').textContent.toLowerCase();
+                if (foodName.includes(searchTerm) || restaurantName.includes(searchTerm)) {
+                    card.style.display = 'block'; // Show card
+                } else {
+                    card.style.display = 'none'; // Hide card
+                }
+            });
+
+            // Filter fast delivery items
+            allRestaurantCards.forEach(card => {
+                const restaurantName = card.querySelector('.restaurant-name-main').textContent.toLowerCase();
+                const restaurantInfo = card.querySelector('.restaurant-name').textContent.toLowerCase(); 
+                if (restaurantName.includes(searchTerm) || restaurantInfo.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // 3. Go to Top Button Visibility
+        window.onscroll = function() {
+            const btn = document.getElementById("goTopBtn");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+
+        // Call the necessary functions when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateAuthLink(); // Update the login/profile link
+            renderFoodCards(); // Dynamically render food items and restaurants
+        });
+    </script>
+</body>
+</html>
