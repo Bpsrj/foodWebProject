@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desi Tadka - Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General body styling for centering login form */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5; /* Light grey background */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Admin Login Card Styling - Similar to user login but distinct */
+        .admin-login-card {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Slightly softer shadow */
+            text-align: center;
+            width: 100%;
+            max-width: 380px; /* Admin login might be a bit smaller */
+            border: 1px solid #e0e0e0;
+        }
+
+        .admin-login-card h2 {
+            margin-bottom: 30px;
+            color: #34495e; /* Dark blue/grey heading */
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: calc(100% - 24px); /* Account for padding + border */
+            padding: 10px 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            color: #333;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #007bff; /* Blue focus */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff; /* Blue button */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .feedback-message {
+            color: #dc3545; /* Red error */
+            margin-top: 15px;
+            font-size: 13px;
+            font-weight: 500;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link {
+            margin-top: 25px;
+            font-size: 14px;
+        }
+
+        .back-link a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            .admin-login-card {
+                padding: 25px;
+                margin: 0 15px;
+            }
+            .admin-login-card h2 {
+                font-size: 22px;
+            }
+            .input-group input {
+                font-size: 15px;
+            }
+            .login-btn {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-login-card">
+        <h2>Admin Panel Login</h2>
+        <form id="adminLoginForm">
+            <div class="input-group">
+                <label for="adminUsername">Admin Username</label>
+                <input type="text" id="adminUsername" name="adminUsername" placeholder="Admin username daalein" required>
+            </div>
+            <div class="input-group">
+                <label for="adminPassword">Admin Password</label>
+                <input type="password" id="adminPassword" name="adminPassword" placeholder="Admin password daalein" required>
+            </div>
+            <button type="submit" class="login-btn">Login to Dashboard</button>
+            <p class="feedback-message" id="adminLoginFeedback"></p>
+        </form>
+        <div class="back-link">
+            <a href="index.html">Main Website Par Wapas Jayen</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('adminLoginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const adminUsernameInput = document.getElementById('adminUsername');
+            const adminPasswordInput = document.getElementById('adminPassword');
+            const adminLoginFeedback = document.getElementById('adminLoginFeedback');
+
+            const username = adminUsernameInput.value.trim();
+            const password = adminPasswordInput.value.trim();
+
+            adminLoginFeedback.style.display = 'none';
+            adminLoginFeedback.style.opacity = '0';
+
+            // Dummy Admin Credentials
+            const DUMMY_ADMIN_USER = 'bd4106743@gmail.com';
+            const DUMMY_ADMIN_PASS = 'Bps7229#'; // Make this unique for your project!
+
+            if (username === DUMMY_ADMIN_USER && password === DUMMY_ADMIN_PASS) {
+                // Simulate successful admin login by setting a flag in localStorage
+                localStorage.setItem('isAdminLoggedIn', 'true');
+                localStorage.setItem('currentAdminUser', DUMMY_ADMIN_USER);
+
+                adminLoginFeedback.textContent = 'Admin Login Safal! Dashboard par redirect ho rahe hain...';
+                adminLoginFeedback.style.color = '#28a745'; // Green for success
+                adminLoginFeedback.style.display = 'block';
+                setTimeout(() => adminLoginFeedback.style.opacity = '1', 50);
+
+                setTimeout(() => {
+                    window.location.href = 'admin.html'; // Redirect to the admin dashboard
+                }, 1000);
+
+            } else {
+                adminLoginFeedback.textContent = 'Invalid Admin Credentials.';
+                adminLoginFeedback.style.color = '#dc3545'; // Red for error
+                adminLoginFeedback.style.display = 'block';
+                setTimeout(() => adminLoginFeedback.style.opacity = '1', 50);
+            }
+        });
+    </script>
+</body>
+</html>
