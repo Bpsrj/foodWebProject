@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* General Styles - Shared with index.html for consistency */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -19,12 +18,11 @@
         }
 
         .container {
-            max-width: 1000px; /* Slightly narrower for cart page */
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* Navbar Styles - Copied from index.html */
         .navbar {
             width: 100%;
             background: #fff;
@@ -72,7 +70,6 @@
             color: #ff6e40;
         }
 
-        /* Personal Header - Copied from index.html */
         .personal-header {
             background: #fff;
             border-bottom: 1px solid #eee;
@@ -114,7 +111,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Cart Page Specific Styles */
         .cart-section-heading {
             font-size: 28px;
             font-weight: 700;
@@ -153,7 +149,7 @@
             width: 70px;
             height: 70px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 8mm;
             margin-right: 15px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
@@ -183,7 +179,7 @@
         .quantity-btn {
             background-color: #f0f0f0;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 6mm;
             width: 30px;
             height: 30px;
             display: flex;
@@ -209,7 +205,7 @@
         .remove-item-btn {
             background: none;
             border: none;
-            color: #e74c3c; /* Red for remove */
+            color: #e74c3c;
             font-size: 20px;
             cursor: pointer;
             margin-left: 15px;
@@ -239,7 +235,7 @@
         .summary-row.total {
             font-size: 20px;
             font-weight: 700;
-            color: #e67e22; /* Orange for total */
+            color: #e67e22;
             border-top: 1px dashed #eee;
             padding-top: 15px;
             margin-top: 15px;
@@ -248,10 +244,10 @@
         .order-now-btn {
             width: 100%;
             padding: 15px 20px;
-            background-color: #28a745; /* Green for order */
+            background-color: #28a745;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 8mm;
             font-size: 20px;
             font-weight: 600;
             cursor: pointer;
@@ -270,7 +266,7 @@
 
         .payment-options-section {
             background-color: #fff;
-            border-radius: 12px;
+            border-radius: 12mm;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             padding: 25px;
             margin-top: 30px;
@@ -303,7 +299,7 @@
             font-size: 24px;
             margin-right: 15px;
             color: #666;
-            min-width: 30px; /* Align icons */
+            min-width: 30px;
             text-align: center;
         }
 
@@ -324,7 +320,6 @@
             margin-bottom: 30px;
         }
 
-        /* Footer Styles - Copied from index.html */
         .site-footer {
             background: #fff;
             border-top: 1px solid #eee;
@@ -360,7 +355,6 @@
             font-weight: 500;
         }
 
-        /* Go to Top Button - Copied from index.html */
         #goTopBtn {
             display: none;
             position: fixed;
@@ -383,7 +377,6 @@
             background: #333;
         }
 
-        /* Responsive Adjustments for Cart Page */
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -504,7 +497,7 @@
         <h2 class="cart-section-heading">Meri Cart</h2>
         
         <div id="cartItemsContainer" class="cart-items-container">
-            </div>
+        </div>
 
         <div id="emptyCartMessage" class="empty-cart-message" style="display: none;">
             Aapki cart khali hai. Kuch tasty khana add karein!
@@ -579,21 +572,18 @@
     </button>
 
     <script>
-        // Helper function to get cart from localStorage
         function getCart() {
             const cartString = localStorage.getItem('desiTadkaCart');
             return cartString ? JSON.parse(cartString) : [];
         }
 
-        // Helper function to save cart to localStorage
         function saveCart(cart) {
             localStorage.setItem('desiTadkaCart', JSON.stringify(cart));
         }
 
-        const DELIVERY_CHARGES = 40; // Example delivery charges
-        const GST_PERCENTAGE = 0.05; // 5% GST
+        const DELIVERY_CHARGES = 40;
+        const GST_PERCENTAGE = 0.05;
 
-        // Function to render cart items
         function renderCart() {
             const cart = getCart();
             const cartItemsContainer = document.getElementById('cartItemsContainer');
@@ -601,7 +591,7 @@
             const cartSummarySection = document.getElementById('cartSummarySection');
             const paymentOptionsSection = document.getElementById('paymentOptionsSection');
 
-            cartItemsContainer.innerHTML = ''; // Clear previous items
+            cartItemsContainer.innerHTML = '';
 
             if (cart.length === 0) {
                 emptyCartMessage.style.display = 'block';
@@ -619,7 +609,7 @@
             cart.forEach(item => {
                 const cartItemDiv = document.createElement('div');
                 cartItemDiv.classList.add('cart-item');
-                cartItemDiv.dataset.itemId = item.id; // Store item ID for easy access
+                cartItemDiv.dataset.itemId = item.id;
 
                 subtotal += item.price * item.quantity;
 
@@ -641,7 +631,6 @@
                 cartItemsContainer.appendChild(cartItemDiv);
             });
 
-            // Calculate totals
             document.getElementById('subtotalAmount').textContent = `₹${subtotal.toFixed(2)}`;
             document.getElementById('deliveryCharges').textContent = `₹${DELIVERY_CHARGES.toFixed(2)}`;
             
@@ -651,11 +640,9 @@
             const grandTotal = subtotal + DELIVERY_CHARGES + gst;
             document.getElementById('grandTotalAmount').textContent = `₹${grandTotal.toFixed(2)}`;
 
-            // Add event listeners for quantity and remove buttons after rendering
             addCartEventListeners();
         }
 
-        // Add event listeners to dynamically created cart item buttons
         function addCartEventListeners() {
             document.querySelectorAll('.increase-qty').forEach(button => {
                 button.addEventListener('click', function() {
@@ -665,7 +652,7 @@
                     if (item) {
                         item.quantity += 1;
                         saveCart(cart);
-                        renderCart(); // Re-render to update quantities and total
+                        renderCart();
                     }
                 });
             });
@@ -679,11 +666,10 @@
                         if (cart[itemIndex].quantity > 1) {
                             cart[itemIndex].quantity -= 1;
                         } else {
-                            // If quantity is 1, remove item
                             cart.splice(itemIndex, 1);
                         }
                         saveCart(cart);
-                        renderCart(); // Re-render
+                        renderCart();
                     }
                 });
             });
@@ -694,7 +680,7 @@
                     let cart = getCart();
                     const updatedCart = cart.filter(item => item.id !== itemId);
                     saveCart(updatedCart);
-                    renderCart(); // Re-render
+                    renderCart();
                 });
             });
 
@@ -710,34 +696,29 @@
                 const gstAmount = parseFloat(document.getElementById('gstAmount').textContent.replace('₹', ''));
                 const grandTotal = parseFloat(document.getElementById('grandTotalAmount').textContent.replace('₹', ''));
 
-                // Create an order object
                 const order = {
-                    orderId: 'ORD-' + Date.now(), // Simple unique ID
+                    orderId: 'ORD-' + Date.now(),
                     timestamp: new Date().toLocaleString(),
                     items: cart,
                     subtotal: subtotal,
                     deliveryCharges: deliveryCharges,
                     gst: gstAmount,
                     grandTotal: grandTotal,
-                    status: 'Pending', // Initial status for admin
-                    // Add dummy user info if logged in (for admin to see who ordered)
+                    status: 'Pending',
                     customer: localStorage.getItem('loggedInUser') ? JSON.parse(localStorage.getItem('loggedInUser')).email || JSON.parse(localStorage.getItem('loggedInUser')).fullName : 'Guest'
                 };
 
-                // Get existing orders or initialize empty array
                 let orders = JSON.parse(localStorage.getItem('adminOrders') || '[]');
                 orders.push(order);
-                localStorage.setItem('adminOrders', JSON.stringify(orders)); // Save to adminOrders
+                localStorage.setItem('adminOrders', JSON.stringify(orders));
 
-                alert('Aapka Order mil gaya hai! Hamari team jald hi aapse sampark karegi.\n(This is a dummy order. Check Admin Dashboard for details!)');
+                alert('Aapka Order mil gaya hai! Hamari team jald hi आपसे संपर्क karegi.\n(This is a dummy order. Check Admin Dashboard for details!)');
                 
-                // Clear cart after order
                 localStorage.removeItem('desiTadkaCart');
-                renderCart(); // Clear cart display on page
+                renderCart();
             });
         }
 
-        // Go to Top Button Visibility (Copied from index.html)
         window.onscroll = function() {
             const btn = document.getElementById("goTopBtn");
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -747,33 +728,25 @@
             }
         };
 
-        // Function to update auth link based on login status
         function updateAuthLink() {
             const authLinkDiv = document.getElementById('authLink');
-            const loggedInUser = localStorage.getItem('loggedInUser'); // Get user from localStorage
+            const loggedInUser = localStorage.getItem('loggedInUser');
 
             if (loggedInUser) {
                 const user = JSON.parse(loggedInUser);
-                // Ensure the 'nav-link' class is on the <a> tag inside authLinkDiv
                 authLinkDiv.innerHTML = `<a href="profile.html" class="nav-link"><i class="fas fa-user-circle"></i> ${user.fullName || user.email.split('@')[0]}</a>`;
-                // If the parent div previously had 'nav-link' class, remove it now.
-                // This prevents styling conflicts if you intended the <a> tag to control styling.
                 authLinkDiv.classList.remove('nav-link');
             } else {
-                // If no user logged in, show "Login"
                 authLinkDiv.innerHTML = `<a href="login.html" class="nav-link"><i class="fas fa-user"></i> Login</a>`;
-                // Ensure the parent div has 'nav-link' class if it was removed
                 authLinkDiv.classList.add('nav-link');
             }
         }
 
-        // Initial render of cart and update auth link when the page loads
         document.addEventListener('DOMContentLoaded', function() {
             renderCart();
             updateAuthLink();
         });
 
-        // Update auth link on login/logout changes in other tabs/windows
         window.addEventListener('storage', updateAuthLink);
     </script>
 </body>

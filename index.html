@@ -7,12 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* General Styles */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8; /* Light background */
+            background-color: #f8f8f8;
             color: #333;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -24,7 +23,6 @@
             padding: 15px;
         }
 
-        /* Header & Search Bar */
         .header {
             display: flex;
             align-items: center;
@@ -65,20 +63,19 @@
         }
 
         .mic-icon {
-            color: #ff6e40; /* Orange color for mic */
+            color: #ff6e40;
             font-size: 20px;
             cursor: pointer;
         }
 
-        /* Ecosaver Banner */
         .ecosaver-banner {
-            background-color: #e0f2f7; /* Light blue */
+            background-color: #e0f2f7;
             padding: 10px 15px;
             margin-top: 15px;
             border-radius: 8px;
             display: flex;
             align-items: center;
-            color: #00796b; /* Darker green for text */
+            color: #00796b;
             font-weight: 500;
         }
 
@@ -87,7 +84,6 @@
             color: #00796b;
         }
 
-        /* Section Headings */
         .section-heading {
             font-size: 22px;
             font-weight: 600;
@@ -96,12 +92,11 @@
             padding-left: 10px;
         }
 
-        /* Food Card Grid */
         .food-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Responsive grid */
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 20px;
-            padding-bottom: 30px; /* Space at bottom */
+            padding-bottom: 30px;
         }
 
         .food-card {
@@ -122,16 +117,16 @@
 
         .food-card-img {
             width: 100%;
-            height: 120px; /* Fixed height for image */
+            height: 120px;
             object-fit: cover;
             border-bottom: 1px solid #eee;
         }
 
         .add-to-cart-btn {
             position: absolute;
-            top: 95px; /* Position over the image */
+            top: 95px;
             right: 10px;
-            background-color: #00a877; /* Green button */
+            background-color: #00a877;
             color: white;
             border: none;
             border-radius: 50%;
@@ -175,7 +170,7 @@
         }
 
         .discounted-price {
-            color: #e67e22; /* Orange for new price */
+            color: #e67e22;
             font-weight: 700;
             font-size: 17px;
         }
@@ -183,7 +178,7 @@
         .food-rating {
             display: flex;
             align-items: center;
-            color: #27ae60; /* Green for rating */
+            color: #27ae60;
             font-weight: 500;
             font-size: 13px;
             margin-bottom: 5px;
@@ -200,7 +195,6 @@
             font-weight: 400;
         }
 
-        /* Fast Delivery Section - Similar, but with specific restaurant items */
         .restaurant-card {
             background-color: #fff;
             border-radius: 12px;
@@ -219,15 +213,15 @@
 
         .restaurant-card-img {
             width: 100%;
-            height: 150px; /* Taller image for fast delivery cards */
+            height: 150px;
             object-fit: cover;
         }
 
         .offer-badge {
             position: absolute;
-            bottom: 8px; /* Position at bottom of image */
+            bottom: 8px;
             left: 0;
-            background-color: #d32f2f; /* Red for offers */
+            background-color: #d32f2f;
             color: white;
             padding: 5px 10px;
             font-size: 12px;
@@ -280,7 +274,6 @@
             font-size: 13px;
         }
 
-        /* What's on your mind? */
         .mind-grid {
             display: flex;
             justify-content: space-around;
@@ -291,7 +284,7 @@
 
         .mind-item {
             text-align: center;
-            width: 80px; /* Fixed width for icon */
+            width: 80px;
         }
 
         .mind-item-img {
@@ -314,7 +307,6 @@
             margin-top: 8px;
         }
 
-        /* More on Swiggy */
         .more-on-swiggy-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -336,7 +328,6 @@
             transform: scale(1.02);
         }
 
-        /* Basic JS Styling */
         .added-to-cart-feedback {
             position: fixed;
             bottom: 20px;
@@ -345,7 +336,7 @@
             background-color: #333;
             color: white;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 5mm;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -356,7 +347,6 @@
             visibility: visible;
         }
 
-        /* Navbar Styles */
         .navbar {
             width: 100%;
             background: #fff;
@@ -404,7 +394,6 @@
             color: #ff6e40;
         }
 
-        /* Personal Header */
         .personal-header {
             background: #fff;
             border-bottom: 1px solid #eee;
@@ -446,7 +435,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Footer Styles */
         .site-footer {
             background: #fff;
             border-top: 1px solid #eee;
@@ -482,7 +470,6 @@
             font-weight: 500;
         }
 
-        /* Go to Top Button */
         #goTopBtn {
             display: none;
             position: fixed;
@@ -505,7 +492,6 @@
             background: #333;
         }
 
-        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .food-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -573,7 +559,7 @@
                 font-size: 14px;
             }
             .food-grid {
-                grid-template-columns: 1fr 1fr; /* 2 columns on very small screens */
+                grid-template-columns: 1fr 1fr;
             }
             .section-heading {
                 font-size: 20px;
@@ -604,7 +590,6 @@
                 margin-bottom: 10px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -651,59 +636,19 @@
         </div>
 
         <h2 class="section-heading">Aapke Mann Mein Kya Hai?</h2>
-        <div class="mind-grid">
-            <div class="mind-item">
-                <img src="https://placehold.co/70x70/FFCC00/black?text=Specials" alt="Sawan Specials" class="mind-item-img">
-                <div class="mind-item-text">Sawan Specials</div>
-            </div>
-            <div class="mind-item">
-                <img src="https://placehold.co/70x70/FFCC00/black?text=Pizzas" alt="Pizzas" class="mind-item-img">
-                <div class="mind-item-text">Pizzas</div>
-            </div>
-            <div class="mind-item">
-                <img src="https://placehold.co/70x70/FFCC00/black?text=Momos" alt="Momos" class="mind-item-img">
-                <div class="mind-item-text">Momos</div>
-            </div>
-            <div class="mind-item">
-                <img src="https://placehold.co/70x70/FFCC00/black?text=Rolls" alt="Rolls" class="mind-item-img">
-                <div class="mind-item-text">Rolls</div>
-            </div>
-            <div class="mind-item">
-                <img src="https://placehold.co/70x70/FFCC00/black?text=Biryani" alt="Biryani" class="mind-item-img">
-                <div class="mind-item-text">Biryani</div>
-            </div>
-            <div class="mind-item">
-                <img src="https://placehold.co/70x70/FFCC00/black?text=Burgers" alt="Burger" class="mind-item-img">
-                <div class="mind-item-text">Burgers</div>
-            </div>
-            <div class="mind-item">
-                <img src="https://placehold.co/70x70/FFCC00/black?text=Mithai" alt="Sweets" class="mind-item-img">
-                <div class="mind-item-text">Mithai</div>
-            </div>
-             <div class="mind-item">
-                <img src="https://placehold.co/70x70/FFCC00/black?text=Desserts" alt="Desserts" class="mind-item-img">
-                <div class="mind-item-text">Desserts</div>
-            </div>
+        <div class="mind-grid" id="categoryMindGrid">
         </div>
 
         <h2 class="section-heading">Aapke Liye Khas</h2>
         <div class="food-grid" id="recommendedFoodGrid">
-            </div>
+        </div>
 
         <h2 class="section-heading">Tez Delivery - Fast Food Favorites</h2>
         <div class="food-grid" id="fastDeliveryFoodGrid">
-            </div>
+        </div>
 
         <h2 class="section-heading">Desi Tadka Par Aur Bhi</h2>
-        <div class="more-on-swiggy-grid">
-            <div class="more-item">Healthy Food</div>
-            <div class="more-item">Guilty Pleasures</div>
-            <div class="more-item">Budget Bites</div>
-            <div class="more-item">Premium Dining</div>
-            <div class="more-item">Breakfast & Brunch</div>
-            <div class="more-item">Late Night Cravings</div>
-            <div class="more-item">Cafes & Coffee</div>
-            <div class="more-item">Ice Cream & Desserts</div>
+        <div class="more-on-swiggy-grid" id="moreOnDesiTadkaGrid">
         </div>
 
     </div> <div class="added-to-cart-feedback" id="cartFeedback">
@@ -738,57 +683,47 @@
 </button>
 
     <script>
-        // Helper function to get cart from localStorage
         function getCart() {
             const cartString = localStorage.getItem('desiTadkaCart');
             return cartString ? JSON.parse(cartString) : [];
         }
 
-        // Helper function to save cart to localStorage
         function saveCart(cart) {
             localStorage.setItem('desiTadkaCart', JSON.stringify(cart));
         }
 
-        // Function to update auth link based on login status
         function updateAuthLink() {
             const authLinkDiv = document.getElementById('authLink');
-            const loggedInUser = localStorage.getItem('loggedInUser'); // Get user from localStorage
+            const loggedInUser = localStorage.getItem('loggedInUser');
 
             if (loggedInUser) {
                 const user = JSON.parse(loggedInUser);
-                // Ensure the 'nav-link' class is on the <a> tag inside authLinkDiv
                 authLinkDiv.innerHTML = `<a href="profile.html" class="nav-link"><i class="fas fa-user-circle"></i> ${user.fullName || user.email.split('@')[0]}</a>`;
-                // If the parent div previously had 'nav-link' class, remove it now.
-                // This prevents styling conflicts if you intended the <a> tag to control styling.
                 authLinkDiv.classList.remove('nav-link');
             } else {
-                // If no user logged in, show "Login"
                 authLinkDiv.innerHTML = `<a href="login.html" class="nav-link"><i class="fas fa-user"></i> Login</a>`;
-                // Ensure the parent div has 'nav-link' class if it was removed
                 authLinkDiv.classList.add('nav-link');
             }
         }
 
-        // Helper functions to get data from localStorage (populated by admin dashboard)
-        // IMPORTANT: These default images will ONLY load if localStorage is empty for 'adminRestaurants'/'adminProducts'.
-        // Once you add/edit via Admin Dashboard, those images will be used.
         function getRestaurants() {
             let restaurants = JSON.parse(localStorage.getItem('adminRestaurants') || '[]');
-            if (restaurants.length === 0) { // Only initialize if localStorage is empty
+            if (restaurants.length === 0) {
                 restaurants = [
                     { id: 'rest1', name: 'McDonald\'s', rating: 4.2, minTime: 15, maxTime: 20, cuisines: 'Burgers, Fast Food', imgUrl: 'https://placehold.co/400x200/FFCC00/white?text=McDonalds' },
                     { id: 'rest2', name: 'Ram Bhojnalaya', rating: 4.5, minTime: 20, maxTime: 30, cuisines: 'North Indian, Thali', imgUrl: 'https://placehold.co/400x200/ADD8E6/darkblue?text=Ram+Bhojnalaya' },
                     { id: 'rest3', name: 'Om Fast Food', rating: 3.9, minTime: 10, maxTime: 15, cuisines: 'Snacks, Street Food', imgUrl: 'https://placehold.co/400x200/F08080/white?text=Om+Fast+Food' },
                     { id: 'rest4', name: 'Dominos Pizza', rating: 4.3, minTime: 20, maxTime: 25, cuisines: 'Pizzas, Fast Food', imgUrl: 'https://placehold.co/400x200/800080/white?text=Dominos+Pizza' }
                 ];
-                saveRestaurants(restaurants); // Save default
+                saveRestaurants(restaurants);
             }
             return restaurants;
         }
+        function saveRestaurants(restaurants) { localStorage.setItem('adminRestaurants', JSON.stringify(restaurants)); }
 
         function getProducts() {
             let products = JSON.parse(localStorage.getItem('adminProducts') || '[]');
-            if (products.length === 0) { // Only initialize if localStorage is empty
+            if (products.length === 0) {
                 products = [
                     { id: 'prod1', restaurantId: 'rest1', name: 'McAloo Tikki Burger', originalPrice: 100, discountedPrice: 79, rating: 4.1, ratingCount: 120, imgUrl: 'https://placehold.co/150x120/FFD700/black?text=McAloo+Tikki' },
                     { id: 'prod2', restaurantId: 'rest1', name: 'McChicken Meal', originalPrice: 300, discountedPrice: 249, rating: 4.3, ratingCount: 180, imgUrl: 'https://placehold.co/150x120/A52A2A/white?text=McChicken+Meal' },
@@ -798,13 +733,51 @@
                     { id: 'prod6', restaurantId: 'rest3', name: 'Paneer Pakoda', originalPrice: 80, discountedPrice: 65, rating: 4.0, ratingCount: 150, imgUrl: 'https://placehold.co/150x120/800000/white?text=Paneer+Pakoda' },
                     { id: 'prod7', restaurantId: 'rest4', name: 'Farmhouse Pizza (Med)', originalPrice: 450, discountedPrice: 399, rating: 4.3, ratingCount: 250, imgUrl: 'https://placehold.co/150x120/FF4500/white?text=Farmhouse+Pizza' }
                 ];
-                localStorage.setItem('adminProducts', JSON.stringify(products)); // Save default
+                saveProducts(products);
             }
             return products;
         }
+        function saveProducts(products) { localStorage.setItem('adminProducts', JSON.stringify(products)); }
+        
+        function getCategories() {
+            let categories = JSON.parse(localStorage.getItem('adminCategories') || '[]');
+            if (categories.length === 0) {
+                categories = [
+                    { id: 'cat1', name: 'Sawan Specials', imgUrl: 'https://placehold.co/70x70/FFCC00/black?text=Sawan' },
+                    { id: 'cat2', name: 'Pizzas', imgUrl: 'https://placehold.co/70x70/007bff/white?text=Pizzas' },
+                    { id: 'cat3', name: 'Momos', imgUrl: 'https://placehold.co/70x70/28a745/white?text=Momos' },
+                    { id: 'cat4', name: 'Rolls', imgUrl: 'https://placehold.co/70x70/FF6E40/white?text=Rolls' },
+                    { id: 'cat5', name: 'Biryani', imgUrl: 'https://placehold.co/70x70/6a11cb/white?text=Biryani' },
+                    { id: 'cat6', name: 'Burgers', imgUrl: 'https://placehold.co/70x70/DC3545/white?text=Burgers' },
+                    { id: 'cat7', name: 'Mithai', imgUrl: 'https://placehold.co/70x70/17A2B8/white?text=Mithai' },
+                    { id: 'cat8', name: 'Desserts', imgUrl: 'https://placehold.co/70x70/6C757D/white?text=Desserts' }
+                ];
+                saveCategories(categories);
+            }
+            return categories;
+        }
+        function saveCategories(categories) { localStorage.setItem('adminCategories', JSON.stringify(categories)); }
+
+        function getMoreItems() {
+            let moreItems = JSON.parse(localStorage.getItem('adminMoreItems') || '[]');
+            if (moreItems.length === 0) {
+                moreItems = [
+                    { id: 'more1', name: 'Healthy Food' },
+                    { id: 'more2', name: 'Guilty Pleasures' },
+                    { id: 'more3', name: 'Budget Bites' },
+                    { id: 'more4', name: 'Premium Dining' },
+                    { id: 'more5', name: 'Breakfast & Brunch' },
+                    { id: 'more6', name: 'Late Night Cravings' },
+                    { id: 'more7', name: 'Cafes & Coffee' },
+                    { id: 'more8', name: 'Ice Cream & Desserts' }
+                ];
+                saveMoreItems(moreItems);
+            }
+            return moreItems;
+        }
+        function saveMoreItems(moreItems) { localStorage.setItem('adminMoreItems', JSON.stringify(moreItems)); }
 
 
-        // Function to render Food Cards
         function renderFoodCards() {
             const products = getProducts();
             const restaurants = getRestaurants();
@@ -812,13 +785,15 @@
             const recommendedGrid = document.getElementById('recommendedFoodGrid');
             const fastDeliveryGrid = document.getElementById('fastDeliveryFoodGrid');
 
-            recommendedGrid.innerHTML = ''; // Clear existing cards
-            fastDeliveryGrid.innerHTML = ''; // Clear existing cards
+            recommendedGrid.innerHTML = '';
+            fastDeliveryGrid.innerHTML = '';
 
-            // Filter products and assign to grids (example logic)
+            renderCategoriesToMindGrid();
+            renderMoreItemsToDesiTadkaGrid();
+
             products.forEach(product => {
                 const restaurant = restaurants.find(r => r.id === product.restaurantId);
-                if (!restaurant) return; // Skip if restaurant not found
+                if (!restaurant) return;
 
                 const foodCardHTML = `
                     <div class="food-card" 
@@ -844,7 +819,6 @@
                 recommendedGrid.insertAdjacentHTML('beforeend', foodCardHTML);
             });
 
-            // Populate Fast Delivery based on restaurant data
             restaurants.forEach(rest => {
                  const fastCardHTML = `
                     <div class="restaurant-card" 
@@ -867,27 +841,53 @@
                 fastDeliveryGrid.insertAdjacentHTML('beforeend', fastCardHTML);
             });
 
-            // Re-attach event listeners for "Add to Cart" buttons
             attachAddToCartListeners();
         }
 
-        // Attach event listeners to dynamically created "Add to Cart" buttons
+        function renderCategoriesToMindGrid() {
+            const categories = getCategories();
+            const categoryMindGrid = document.getElementById('categoryMindGrid');
+            categoryMindGrid.innerHTML = '';
+
+            categories.forEach(cat => {
+                const mindItemHTML = `
+                    <div class="mind-item">
+                        <img src="${cat.imgUrl}" alt="${cat.name}" class="mind-item-img">
+                        <div class="mind-item-text">${cat.name}</div>
+                    </div>
+                `;
+                categoryMindGrid.insertAdjacentHTML('beforeend', mindItemHTML);
+            });
+        }
+
+        function renderMoreItemsToDesiTadkaGrid() {
+            const moreItems = getMoreItems();
+            const moreOnDesiTadkaGrid = document.getElementById('moreOnDesiTadkaGrid');
+            moreOnDesiTadkaGrid.innerHTML = '';
+
+            moreItems.forEach(item => {
+                const moreItemHTML = `
+                    <div class="more-item">${item.name}</div>
+                `;
+                moreOnDesiTadkaGrid.insertAdjacentHTML('beforeend', moreItemHTML);
+            });
+        }
+
         function attachAddToCartListeners() {
             document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                // Remove existing listener to prevent duplicates when re-rendering
                 button.removeEventListener('click', handleAddToCartClick); 
                 button.addEventListener('click', handleAddToCartClick);
             });
         }
 
         function handleAddToCartClick(event) {
-            event.stopPropagation(); // Prevent card click event if any
+            event.stopPropagation();
             const foodCard = this.closest('.food-card, .restaurant-card');
             
             const foodId = foodCard.dataset.foodId;
             const foodName = foodCard.dataset.foodName;
-            const foodPrice = parseFloat(foodCard.dataset.foodPrice); // Ensure price is a number
-            const foodImg = foodCard.dataset.foodImg || foodCard.querySelector('img').src; // Get image URL
+            const foodPrice = parseFloat(foodCard.dataset.foodPrice);
+            const foodImg = foodCard.dataset.foodImg || foodCard.querySelector('img').src;
 
             let cart = getCart();
             const existingItem = cart.find(item => item.id === foodId);
@@ -905,34 +905,30 @@
             }
             saveCart(cart);
 
-            // Show feedback
             const feedbackDiv = document.getElementById('cartFeedback');
             feedbackDiv.textContent = `${foodName} added to cart!`;
             feedbackDiv.classList.add('show');
 
             setTimeout(() => {
                 feedbackDiv.classList.remove('show');
-            }, 1500); // Hide after 1.5 seconds
+            }, 1500);
         }
 
-        // 2. Simple Search Functionality (Frontend Filter)
         document.getElementById('searchInput').addEventListener('keyup', function() {
             const searchTerm = this.value.toLowerCase();
             const allFoodCards = document.querySelectorAll('.food-card');
-            const allRestaurantCards = document.querySelectorAll('.restaurant-card'); // Fast Delivery
+            const allRestaurantCards = document.querySelectorAll('.restaurant-card');
 
-            // Filter main food items
             allFoodCards.forEach(card => {
                 const foodName = card.dataset.foodName.toLowerCase();
                 const restaurantName = card.querySelector('.restaurant-name').textContent.toLowerCase();
                 if (foodName.includes(searchTerm) || restaurantName.includes(searchTerm)) {
-                    card.style.display = 'block'; // Show card
+                    card.style.display = 'block';
                 } else {
-                    card.style.display = 'none'; // Hide card
+                    card.style.display = 'none';
                 }
             });
 
-            // Filter fast delivery items
             allRestaurantCards.forEach(card => {
                 const restaurantName = card.querySelector('.restaurant-name-main').textContent.toLowerCase();
                 const restaurantInfo = card.querySelector('.restaurant-name').textContent.toLowerCase(); 
@@ -944,7 +940,6 @@
             });
         });
 
-        // 3. Go to Top Button Visibility
         window.onscroll = function() {
             const btn = document.getElementById("goTopBtn");
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -954,10 +949,9 @@
             }
         };
 
-        // Call the necessary functions when the page loads
         document.addEventListener('DOMContentLoaded', function() {
-            updateAuthLink(); // Update the login/profile link
-            renderFoodCards(); // Dynamically render food items and restaurants
+            updateAuthLink();
+            renderFoodCards();
         });
     </script>
 </body>

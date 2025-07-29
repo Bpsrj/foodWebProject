@@ -7,12 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* General Styles - Copied for consistency */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8; /* Light background */
+            background-color: #f8f8f8;
             color: #333;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -24,7 +23,6 @@
             padding: 15px;
         }
 
-        /* Navbar Styles - Copied for consistency */
         .navbar {
             width: 100%;
             background: #fff;
@@ -72,7 +70,6 @@
             color: #ff6e40;
         }
 
-        /* Personal Header - Copied for consistency */
         .personal-header {
             background: #fff;
             border-bottom: 1px solid #eee;
@@ -114,12 +111,11 @@
             letter-spacing: 0.5px;
         }
 
-        /* Login Page Specific Styles */
         .login-main {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 200px); /* Adjust based on header/footer height */
+            min-height: calc(100vh - 200px);
             padding: 30px 0;
         }
 
@@ -127,16 +123,16 @@
             background-color: #ffffff;
             padding: 45px;
             border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             text-align: center;
             width: 100%;
-            max-width: 420px; /* Slightly adjusted max width */
-            border: 1px solid #eee; /* Subtle border */
+            max-width: 420px;
+            border: 1px solid #eee;
         }
 
         .login-card h2 {
             margin-bottom: 35px;
-            color: #ff6e40; /* Orange heading color */
+            color: #ff6e40;
             font-size: 30px;
             font-weight: 700;
         }
@@ -155,10 +151,10 @@
         }
 
         .input-group input {
-            width: calc(100% - 24px); /* Adjusted for padding and border */
+            width: calc(100% - 24px);
             padding: 12px 10px;
-            border: 1px solid #ccc; /* Lighter border */
-            border-radius: 8px; /* Consistent rounded corners */
+            border: 1px solid #ccc;
+            border-radius: 8mm;
             font-size: 17px;
             box-sizing: border-box;
             color: #333;
@@ -166,7 +162,7 @@
         }
 
         .input-group input:focus {
-            border-color: #00a877; /* Green focus border */
+            border-color: #00a877;
             outline: none;
             box-shadow: 0 0 0 3px rgba(0, 168, 119, 0.2);
         }
@@ -174,10 +170,10 @@
         .login-btn {
             width: 100%;
             padding: 15px;
-            background-color: #00a877; /* Green button */
+            background-color: #00a877;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 8mm;
             font-size: 19px;
             font-weight: 600;
             cursor: pointer;
@@ -196,7 +192,7 @@
         }
 
         .feedback-message {
-            color: #d32f2f; /* Red for errors */
+            color: #d32f2f;
             margin-top: 20px;
             font-size: 15px;
             font-weight: 500;
@@ -211,7 +207,7 @@
         }
 
         .login-links a {
-            color: #ff6e40; /* Orange for links */
+            color: #ff6e40;
             text-decoration: none;
             margin: 0 10px;
             transition: color 0.2s;
@@ -222,7 +218,6 @@
             color: #e65100;
         }
 
-        /* Footer Styles - Copied for consistency */
         .site-footer {
             background: #fff;
             border-top: 1px solid #eee;
@@ -258,7 +253,6 @@
             font-weight: 500;
         }
 
-        /* Go to Top Button - Copied for consistency */
         #goTopBtn {
             display: none;
             position: fixed;
@@ -281,7 +275,6 @@
             background: #333;
         }
 
-        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .navbar-left, .navbar-right {
                 margin: 0 10px;
@@ -425,10 +418,9 @@
     </button>
 
     <script>
-        // Function to update auth link based on login status
         function updateAuthLink() {
             const authLinkDiv = document.getElementById('authLink');
-            const loggedInUser = localStorage.getItem('loggedInUser'); // Get user from localStorage
+            const loggedInUser = localStorage.getItem('loggedInUser');
 
             if (loggedInUser) {
                 const user = JSON.parse(loggedInUser);
@@ -441,7 +433,7 @@
         }
 
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Default form submission roko
+            event.preventDefault();
 
             const usernameInput = document.getElementById('username');
             const passwordInput = document.getElementById('password');
@@ -455,7 +447,7 @@
 
             if (!identifier || !password) {
                 loginFeedbackMessage.textContent = 'Kripya username/email aur password dono bharein.';
-                loginFeedbackMessage.style.color = '#d32f2f'; // Red for error
+                loginFeedbackMessage.style.color = '#d32f2f';
                 loginFeedbackMessage.style.display = 'block';
                 setTimeout(() => loginFeedbackMessage.style.opacity = '1', 50);
                 return;
@@ -471,24 +463,23 @@
                 localStorage.setItem('loggedInUser', JSON.stringify(userFound));
 
                 loginFeedbackMessage.textContent = `Login Safal! Aapka swagat hai, ${userFound.fullName || userFound.email.split('@')[0]}!`;
-                loginFeedbackMessage.style.color = '#27ae60'; // Green for success
+                loginFeedbackMessage.style.color = '#27ae60';
                 loginFeedbackMessage.style.display = 'block';
                 setTimeout(() => loginFeedbackMessage.style.opacity = '1', 50);
 
                 setTimeout(() => {
                     alert('Login Safal! Ab aapki profile par ja rahe hain.');
-                    window.location.href = 'profile.html'; // Redirect to profile page
+                    window.location.href = 'profile.html';
                 }, 1500);
 
             } else {
                 loginFeedbackMessage.textContent = 'Galat username/email ya password. Kripya dobara prayas karein.';
-                loginFeedbackMessage.style.color = '#d32f2f'; // Red for error
+                loginFeedbackMessage.style.color = '#d32f2f';
                 loginFeedbackMessage.style.display = 'block';
                 setTimeout(() => loginFeedbackMessage.style.opacity = '1', 50);
             }
         });
 
-        // Go to Top Button Visibility
         window.onscroll = function() {
             const btn = document.getElementById("goTopBtn");
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -498,7 +489,6 @@
             }
         };
 
-        // Call the function when the page loads
         document.addEventListener('DOMContentLoaded', updateAuthLink);
     </script>
 </body>

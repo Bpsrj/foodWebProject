@@ -7,12 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* General body styling for centering login form */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5; /* Light grey background */
+            background-color: #f0f2f5;
             color: #333;
             display: flex;
             justify-content: center;
@@ -22,21 +21,20 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Admin Login Card Styling - Similar to user login but distinct */
         .admin-login-card {
             background-color: #ffffff;
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Slightly softer shadow */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 100%;
-            max-width: 380px; /* Admin login might be a bit smaller */
+            max-width: 380px;
             border: 1px solid #e0e0e0;
         }
 
         .admin-login-card h2 {
             margin-bottom: 30px;
-            color: #34495e; /* Dark blue/grey heading */
+            color: #34495e;
             font-size: 26px;
             font-weight: 700;
         }
@@ -55,10 +53,10 @@
         }
 
         .input-group input {
-            width: calc(100% - 24px); /* Account for padding + border */
+            width: calc(100% - 24px);
             padding: 10px 10px;
             border: 1px solid #ccc;
-            border-radius: 6px;
+            border-radius: 6mm;
             font-size: 16px;
             box-sizing: border-box;
             color: #333;
@@ -66,7 +64,7 @@
         }
 
         .input-group input:focus {
-            border-color: #007bff; /* Blue focus */
+            border-color: #007bff;
             outline: none;
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
         }
@@ -74,10 +72,10 @@
         .login-btn {
             width: 100%;
             padding: 12px;
-            background-color: #007bff; /* Blue button */
+            background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 6mm;
             font-size: 17px;
             font-weight: 600;
             cursor: pointer;
@@ -95,7 +93,7 @@
         }
 
         .feedback-message {
-            color: #dc3545; /* Red error */
+            color: #dc3545;
             margin-top: 15px;
             font-size: 13px;
             font-weight: 500;
@@ -119,7 +117,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive Adjustments */
         @media (max-width: 480px) {
             .admin-login-card {
                 padding: 25px;
@@ -173,27 +170,25 @@
             adminLoginFeedback.style.display = 'none';
             adminLoginFeedback.style.opacity = '0';
 
-            // Dummy Admin Credentials
             const DUMMY_ADMIN_USER = 'bd4106743@gmail.com';
-            const DUMMY_ADMIN_PASS = 'Bps7229#'; // Make this unique for your project!
+            const DUMMY_ADMIN_PASS = 'Bps7229#';
 
             if (username === DUMMY_ADMIN_USER && password === DUMMY_ADMIN_PASS) {
-                // Simulate successful admin login by setting a flag in localStorage
                 localStorage.setItem('isAdminLoggedIn', 'true');
                 localStorage.setItem('currentAdminUser', DUMMY_ADMIN_USER);
 
                 adminLoginFeedback.textContent = 'Admin Login Safal! Dashboard par redirect ho rahe hain...';
-                adminLoginFeedback.style.color = '#28a745'; // Green for success
+                adminLoginFeedback.style.color = '#28a745';
                 adminLoginFeedback.style.display = 'block';
                 setTimeout(() => adminLoginFeedback.style.opacity = '1', 50);
 
                 setTimeout(() => {
-                    window.location.href = 'admin.html'; // Redirect to the admin dashboard
+                    window.location.href = 'admin.html';
                 }, 1000);
 
             } else {
                 adminLoginFeedback.textContent = 'Invalid Admin Credentials.';
-                adminLoginFeedback.style.color = '#dc3545'; // Red for error
+                adminLoginFeedback.style.color = '#dc3545';
                 adminLoginFeedback.style.display = 'block';
                 setTimeout(() => adminLoginFeedback.style.opacity = '1', 50);
             }

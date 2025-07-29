@@ -11,7 +11,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f6f9; /* Light greyish blue */
+            background-color: #f4f6f9;
             color: #333;
             display: flex;
             min-height: 100vh;
@@ -19,10 +19,9 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Sidebar Styling */
         .admin-sidebar {
             width: 250px;
-            background-color: #2c3e50; /* Dark blue-grey */
+            background-color: #2c3e50;
             color: white;
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
@@ -30,7 +29,7 @@
             flex-direction: column;
             position: sticky;
             top: 0;
-            height: 100vh; /* Full height */
+            height: 100vh;
         }
 
         .admin-sidebar h2 {
@@ -70,23 +69,23 @@
 
         .sidebar-nav a:hover,
         .sidebar-nav a.active {
-            background-color: #3498db; /* Blue active/hover */
+            background-color: #3498db;
             color: white;
         }
 
         .sidebar-footer {
-            margin-top: auto; /* Pushes to the bottom */
+            margin-top: auto;
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .sidebar-footer button {
-            background-color: #e74c3c; /* Red logout */
+            background-color: #e74c3c;
             color: white;
             border: none;
             padding: 10px 15px;
-            border-radius: 8px;
+            border-radius: 8mm;
             cursor: pointer;
             font-size: 15px;
             font-weight: 600;
@@ -97,7 +96,6 @@
             background-color: #c0392b;
         }
 
-        /* Main Content Area */
         .admin-content {
             flex-grow: 1;
             padding: 30px;
@@ -129,7 +127,6 @@
             color: #3498db;
         }
 
-        /* Dashboard Cards */
         .dashboard-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -145,13 +142,12 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            border-left: 5px solid; /* Dynamic border color */
+            border-left: 5px solid;
         }
-        .card-item.sales { border-left-color: #28a745; } /* Green for sales */
-        .card-item.orders { border-left-color: #007bff; } /* Blue for orders */
-        .card-item.users { border-left-color: #ffc107; } /* Yellow for users */
-        .card-item.restaurants { border-left-color: #6c757d; } /* Grey for restaurants */
-
+        .card-item.sales { border-left-color: #28a745; }
+        .card-item.orders { border-left-color: #007bff; }
+        .card-item.users { border-left-color: #ffc107; }
+        .card-item.restaurants { border-left-color: #6c757d; }
 
         .card-icon {
             font-size: 40px;
@@ -161,7 +157,6 @@
         .card-item.orders .card-icon { color: #007bff; }
         .card-item.users .card-icon { color: #ffc107; }
         .card-item.restaurants .card-icon { color: #6c757d; }
-
 
         .card-content h3 {
             margin: 0 0 5px 0;
@@ -177,14 +172,13 @@
             color: #333;
         }
 
-        /* Section Specific Styles (e.g., Orders List, Restaurant Management) */
         .admin-section {
             background-color: #ffffff;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             margin-bottom: 30px;
-            display: none; /* Hidden by default, shown by JS */
+            display: none;
         }
         .admin-section.active {
             display: block;
@@ -197,7 +191,6 @@
             font-weight: 600;
         }
 
-        /* Table Styling */
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -236,7 +229,6 @@
         .status-badge.completed { background-color: #28a745; color: white; }
         .status-badge.cancelled { background-color: #dc3545; color: white; }
 
-        /* Form Styling for Add/Edit */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -253,16 +245,16 @@
 
         .form-grid input[type="text"],
         .form-grid input[type="number"],
-        .form-grid input[type="url"], /* Added for image URL */
+        .form-grid input[type="url"],
         .form-grid textarea,
-        .form-grid select { /* Added for select dropdown */
+        .form-grid select {
             width: calc(100% - 24px);
             padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 6mm; /* Changed to mm for unique style */
+            border-radius: 6mm;
             font-size: 16px;
             box-sizing: border-box;
-            background-color: #fdfdfd; /* Slightly off-white for inputs */
+            background-color: #fdfdfd;
         }
         .form-grid textarea {
             resize: vertical;
@@ -274,7 +266,7 @@
             color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 6mm; /* Changed to mm for unique style */
+            border-radius: 6mm;
             cursor: pointer;
             font-size: 16px;
             font-weight: 600;
@@ -298,10 +290,8 @@
             background-color: #218838;
         }
 
-
-        /* Item Management Table (for restaurant items) */
         .item-management-table th, .item-management-table td {
-            padding: 8px 10px; /* Smaller padding */
+            padding: 8px 10px;
             font-size: 14px;
         }
 
@@ -310,7 +300,6 @@
             font-size: 13px;
         }
 
-        /* Responsive Adjustments */
         @media (max-width: 992px) {
             .admin-sidebar {
                 width: 200px;
@@ -416,7 +405,6 @@
                 font-size: 14px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -429,6 +417,8 @@
                 <li><a href="#" data-section="orders"><i class="fas fa-receipt"></i> Orders</a></li>
                 <li><a href="#" data-section="restaurants"><i class="fas fa-store"></i> Restaurants</a></li>
                 <li><a href="#" data-section="products"><i class="fas fa-utensils"></i> Products</a></li>
+                <li><a href="#" data-section="categories"><i class="fas fa-list"></i> Categories</a></li>
+                <li><a href="#" data-section="more-items"><i class="fas fa-th-large"></i> More Items</a></li>
                 <li><a href="#" data-section="users"><i class="fas fa-users"></i> Users</a></li>
             </ul>
         </nav>
@@ -451,21 +441,21 @@
                 <div class="card-item sales">
                     <i class="fas fa-chart-line card-icon"></i>
                     <div class="card-content">
-                        <h3>Total Sales (Dummy)</h3>
+                        <h3>Total Sales </h3>
                         <p>₹<span id="totalSales">0.00</span></p>
                     </div>
                 </div>
                 <div class="card-item orders">
                     <i class="fas fa-box card-icon"></i>
                     <div class="card-content">
-                        <h3>Total Orders (Dummy)</h3>
+                        <h3>Total Orders </h3>
                         <p><span id="totalOrders">0</span></p>
                     </div>
                 </div>
                 <div class="card-item users">
                     <i class="fas fa-user-friends card-icon"></i>
                     <div class="card-content">
-                        <h3>Registered Users (Dummy)</h3>
+                        <h3>Registered Users </h3>
                         <p><span id="totalUsers">0</span></p>
                     </div>
                 </div>
@@ -480,7 +470,7 @@
         </section>
 
         <section id="orders" class="admin-section">
-            <h3>Recent Orders (Dummy)</h3>
+            <h3>Recent Orders</h3>
             <table class="data-table" id="ordersTable">
                 <thead>
                     <tr>
@@ -503,7 +493,7 @@
                 <button class="action-buttons add-item" id="addRestaurantBtn"><i class="fas fa-plus"></i> Add New Restaurant</button>
             </div>
             
-            <div id="restaurantFormContainer" style="display: none; background-color: #f8f8f8; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: inset 0 0 8px rgba(0,0,0,0.05);">
+            <div id="restaurantFormContainer" style="display: none; background-color: #f8f8f8; padding: 20px; border-radius: 10mm; margin-bottom: 20px; box-shadow: inset 0 0 8px rgba(0,0,0,0.05);">
                 <h4><span id="formTitle">Add</span> Restaurant</h4>
                 <form id="restaurantForm" class="form-grid">
                     <input type="hidden" id="restaurantId">
@@ -561,7 +551,7 @@
                 <button class="action-buttons add-item" id="addProductBtn"><i class="fas fa-plus"></i> Add New Product</button>
             </div>
 
-            <div id="productFormContainer" style="display: none; background-color: #f8f8f8; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: inset 0 0 8px rgba(0,0,0,0.05);">
+            <div id="productFormContainer" style="display: none; background-color: #f8f8f8; padding: 20px; border-radius: 10mm; margin-bottom: 20px; box-shadow: inset 0 0 8px rgba(0,0,0,0.05);">
                 <h4><span id="productFormTitle">Add</span> Product</h4>
                 <form id="productForm" class="form-grid">
                     <input type="hidden" id="productId">
@@ -618,8 +608,81 @@
             </table>
         </section>
 
+        <section id="categories" class="admin-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3>Manage Categories ("Aapke Mann Mein Kya Hai?")</h3>
+                <button class="action-buttons add-item" id="addCategoryBtn"><i class="fas fa-plus"></i> Add New Category</button>
+            </div>
+
+            <div id="categoryFormContainer" style="display: none; background-color: #f8f8f8; padding: 20px; border-radius: 10mm; margin-bottom: 20px; box-shadow: inset 0 0 8px rgba(0,0,0,0.05);">
+                <h4><span id="categoryFormTitle">Add</span> Category</h4>
+                <form id="categoryForm" class="form-grid">
+                    <input type="hidden" id="categoryId">
+                    <div>
+                        <label for="categoryName">Category Name:</label>
+                        <input type="text" id="categoryName" required>
+                    </div>
+                    <div>
+                        <label for="categoryImgUrl">Image URL:</label>
+                        <input type="url" id="categoryImgUrl" placeholder="Category icon/image URL" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" id="saveCategoryBtn">Save Category</button>
+                        <button type="button" id="cancelCategoryBtn" class="delete">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <table class="data-table" id="categoriesTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="more-items" class="admin-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3>Manage "More on Desi Tadka" Items</h3>
+                <button class="action-buttons add-item" id="addMoreItemBtn"><i class="fas fa-plus"></i> Add New Item</button>
+            </div>
+
+            <div id="moreItemFormContainer" style="display: none; background-color: #f8f8f8; padding: 20px; border-radius: 10mm; margin-bottom: 20px; box-shadow: inset 0 0 8px rgba(0,0,0,0.05);">
+                <h4><span id="moreItemFormTitle">Add</span> More Item</h4>
+                <form id="moreItemForm" class="form-grid">
+                    <input type="hidden" id="moreItemId">
+                    <div>
+                        <label for="moreItemName">Item Name:</label>
+                        <input type="text" id="moreItemName" required>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="submit" id="saveMoreItemBtn">Save Item</button>
+                        <button type="button" id="cancelMoreItemBtn" class="delete">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <table class="data-table" id="moreItemsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
         <section id="users" class="admin-section">
-            <h3>Registered Users (Dummy)</h3>
+            <h3>Registered Users</h3>
             <table class="data-table" id="usersTable">
                 <thead>
                     <tr>
@@ -635,7 +698,6 @@
         </section>
 
     </div> <script>
-        // --- Admin Authentication Check ---
         if (localStorage.getItem('isAdminLoggedIn') !== 'true') {
             window.location.href = 'admin-login.html';
         }
@@ -646,7 +708,6 @@
             window.location.href = 'admin-login.html';
         });
 
-        // --- Sidebar Navigation ---
         const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
         const adminSections = document.querySelectorAll('.admin-section');
         const pageTitle = document.getElementById('pageTitle');
@@ -685,19 +746,23 @@
                 case 'products':
                     renderProducts();
                     break;
+                case 'categories':
+                    renderCategories();
+                    break;
+                case 'more-items':
+                    renderMoreItems();
+                    break;
                 case 'users':
                     renderUsers();
                     break;
             }
         }
 
-        // --- Data Management Functions (using localStorage) ---
         function getOrders() { return JSON.parse(localStorage.getItem('adminOrders') || '[]'); }
         function saveOrders(orders) { localStorage.setItem('adminOrders', JSON.stringify(orders)); }
 
         function getRestaurants() {
             let restaurants = JSON.parse(localStorage.getItem('adminRestaurants') || '[]');
-            // Initialize default restaurants ONLY if localStorage is empty
             if (restaurants.length === 0) {
                 restaurants = [
                     { id: 'rest1', name: 'McDonald\'s', rating: 4.2, minTime: 15, maxTime: 20, cuisines: 'Burgers, Fast Food', imgUrl: 'https://placehold.co/400x200/FFCC00/white?text=McDonalds' },
@@ -713,7 +778,6 @@
 
         function getProducts() {
             let products = JSON.parse(localStorage.getItem('adminProducts') || '[]');
-            // Initialize default products ONLY if localStorage is empty
             if (products.length === 0) {
                 products = [
                     { id: 'prod1', restaurantId: 'rest1', name: 'McAloo Tikki Burger', originalPrice: 100, discountedPrice: 79, rating: 4.1, ratingCount: 120, imgUrl: 'https://placehold.co/150x120/FFD700/black?text=McAloo+Tikki' },
@@ -729,14 +793,53 @@
             return products;
         }
         function saveProducts(products) { localStorage.setItem('adminProducts', JSON.stringify(products)); }
+        
+        function getCategories() {
+            let categories = JSON.parse(localStorage.getItem('adminCategories') || '[]');
+            if (categories.length === 0) {
+                categories = [
+                    { id: 'cat1', name: 'Sawan Specials', imgUrl: 'https://placehold.co/70x70/FFCC00/black?text=Sawan' },
+                    { id: 'cat2', name: 'Pizzas', imgUrl: 'https://placehold.co/70x70/007bff/white?text=Pizzas' },
+                    { id: 'cat3', name: 'Momos', imgUrl: 'https://placehold.co/70x70/28a745/white?text=Momos' },
+                    { id: 'cat4', name: 'Rolls', imgUrl: 'https://placehold.co/70x70/FF6E40/white?text=Rolls' },
+                    { id: 'cat5', name: 'Biryani', imgUrl: 'https://placehold.co/70x70/6a11cb/white?text=Biryani' },
+                    { id: 'cat6', name: 'Burgers', imgUrl: 'https://placehold.co/70x70/DC3545/white?text=Burgers' },
+                    { id: 'cat7', name: 'Mithai', imgUrl: 'https://placehold.co/70x70/17A2B8/white?text=Mithai' },
+                    { id: 'cat8', name: 'Desserts', imgUrl: 'https://placehold.co/70x70/6C757D/white?text=Desserts' }
+                ];
+                saveCategories(categories);
+            }
+            return categories;
+        }
+        function saveCategories(categories) { localStorage.setItem('adminCategories', JSON.stringify(categories)); }
+
+        function getMoreItems() {
+            let moreItems = JSON.parse(localStorage.getItem('adminMoreItems') || '[]');
+            if (moreItems.length === 0) {
+                moreItems = [
+                    { id: 'more1', name: 'Healthy Food' },
+                    { id: 'more2', name: 'Guilty Pleasures' },
+                    { id: 'more3', name: 'Budget Bites' },
+                    { id: 'more4', name: 'Premium Dining' },
+                    { id: 'more5', name: 'Breakfast & Brunch' },
+                    { id: 'more6', name: 'Late Night Cravings' },
+                    { id: 'more7', name: 'Cafes & Coffee' },
+                    { id: 'more8', name: 'Ice Cream & Desserts' }
+                ];
+                saveMoreItems(moreItems);
+            }
+            return moreItems;
+        }
+        function saveMoreItems(moreItems) { localStorage.setItem('adminMoreItems', JSON.stringify(moreItems)); }
 
         function getUsers() { return JSON.parse(localStorage.getItem('registeredUsers') || '[]'); }
 
-        // --- Dashboard Rendering ---
         function renderDashboard() {
             const orders = getOrders();
             const users = getUsers();
             const restaurants = getRestaurants();
+            const categories = getCategories();
+            const moreItems = getMoreItems();
 
             let totalSales = 0;
             orders.forEach(order => {
@@ -749,7 +852,6 @@
             document.getElementById('totalRestaurants').textContent = restaurants.length;
         }
 
-        // --- Orders Section Rendering ---
         function renderOrders() {
             const orders = getOrders();
             const ordersTableBody = document.querySelector('#ordersTable tbody');
@@ -781,7 +883,6 @@
             });
         }
 
-        // --- Restaurants Section Rendering ---
         function renderRestaurants() {
             const restaurants = getRestaurants();
             const restaurantsTableBody = document.querySelector('#restaurantsTable tbody');
@@ -807,7 +908,7 @@
                 img.style.width = '50px';
                 img.style.height = '30px';
                 img.style.objectFit = 'cover';
-                img.style.borderRadius = '4mm'; /* Consistent with new form radius */
+                img.style.borderRadius = '4mm';
                 imgCell.appendChild(img);
 
                 const actionsCell = row.insertCell();
@@ -826,7 +927,6 @@
             });
         }
 
-        // Restaurant Form Logic
         const restaurantFormContainer = document.getElementById('restaurantFormContainer');
         const addRestaurantBtn = document.getElementById('addRestaurantBtn');
         const restaurantForm = document.getElementById('restaurantForm');
@@ -898,7 +998,6 @@
             }
         }
 
-        // --- Products Section Rendering ---
         function renderProducts() {
             const products = getProducts();
             const restaurants = getRestaurants();
@@ -926,7 +1025,7 @@
                 img.style.width = '50px';
                 img.style.height = '30px';
                 img.style.objectFit = 'cover';
-                img.style.borderRadius = '4mm'; /* Consistent with new form radius */
+                img.style.borderRadius = '4mm';
                 imgCell.appendChild(img);
 
                 const actionsCell = row.insertCell();
@@ -946,7 +1045,6 @@
             populateProductRestaurantSelect();
         }
 
-        // Product Form Logic
         const productFormContainer = document.getElementById('productFormContainer');
         const addProductBtn = document.getElementById('addProductBtn');
         const productForm = document.getElementById('productForm');
@@ -1034,7 +1132,202 @@
             }
         }
 
-        // --- Users Section Rendering ---
+        function renderCategories() {
+            const categories = getCategories();
+            const categoriesTableBody = document.querySelector('#categoriesTable tbody');
+            categoriesTableBody.innerHTML = '';
+
+            if (categories.length === 0) {
+                categoriesTableBody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 20px;">No categories added yet.</td></tr>';
+                return;
+            }
+
+            categories.forEach(cat => {
+                const row = categoriesTableBody.insertRow();
+                row.insertCell().textContent = cat.id;
+                row.insertCell().textContent = cat.name;
+                
+                const imgCell = row.insertCell();
+                const img = document.createElement('img');
+                img.src = cat.imgUrl;
+                img.alt = cat.name;
+                img.style.width = '40px';
+                img.style.height = '40px';
+                img.style.objectFit = 'cover';
+                img.style.borderRadius = '50%';
+                imgCell.appendChild(img);
+
+                const actionsCell = row.insertCell();
+                const editBtn = document.createElement('button');
+                editBtn.innerHTML = '<i class="fas fa-edit"></i> Edit';
+                editBtn.classList.add('action-buttons');
+                editBtn.onclick = () => editCategory(cat.id);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i> Delete';
+                deleteBtn.classList.add('action-buttons', 'delete');
+                deleteBtn.onclick = () => deleteCategory(cat.id);
+
+                actionsCell.appendChild(editBtn);
+                actionsCell.appendChild(deleteBtn);
+            });
+        }
+
+        const categoryFormContainer = document.getElementById('categoryFormContainer');
+        const addCategoryBtn = document.getElementById('addCategoryBtn');
+        const categoryForm = document.getElementById('categoryForm');
+        const categoryFormTitle = document.getElementById('categoryFormTitle');
+        const saveCategoryBtn = document.getElementById('saveCategoryBtn');
+        const cancelCategoryBtn = document.getElementById('cancelCategoryBtn');
+
+        addCategoryBtn.addEventListener('click', () => {
+            categoryFormContainer.style.display = 'block';
+            categoryFormTitle.textContent = 'Add';
+            categoryForm.reset();
+            document.getElementById('categoryId').value = '';
+        });
+
+        cancelCategoryBtn.addEventListener('click', () => {
+            categoryFormContainer.style.display = 'none';
+        });
+
+        categoryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('categoryId').value;
+            const name = document.getElementById('categoryName').value.trim();
+            const imgUrl = document.getElementById('categoryImgUrl').value.trim();
+
+            let categories = getCategories();
+
+            if (id) {
+                const index = categories.findIndex(cat => cat.id === id);
+                if (index > -1) {
+                    categories[index] = { id, name, imgUrl };
+                }
+            } else {
+                const newId = 'cat' + Date.now();
+                categories.push({ id: newId, name, imgUrl });
+            }
+            saveCategories(categories);
+            categoryFormContainer.style.display = 'none';
+            renderCategories();
+            alert('Category saved successfully!');
+        });
+
+        function editCategory(id) {
+            const categories = getCategories();
+            const cat = categories.find(c => c.id === id);
+            if (cat) {
+                categoryFormContainer.style.display = 'block';
+                categoryFormTitle.textContent = 'Edit';
+                document.getElementById('categoryId').value = cat.id;
+                document.getElementById('categoryName').value = cat.name;
+                document.getElementById('categoryImgUrl').value = cat.imgUrl;
+            }
+        }
+
+        function deleteCategory(id) {
+            if (confirm('Are you sure you want to delete this category?')) {
+                let categories = getCategories();
+                const updatedCategories = categories.filter(cat => cat.id !== id);
+                saveCategories(updatedCategories);
+                renderCategories();
+                alert('Category deleted!');
+            }
+        }
+
+        function renderMoreItems() {
+            const moreItems = getMoreItems();
+            const moreItemsTableBody = document.querySelector('#moreItemsTable tbody');
+            moreItemsTableBody.innerHTML = '';
+
+            if (moreItems.length === 0) {
+                moreItemsTableBody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 20px;">No "More Items" added yet.</td></tr>';
+                return;
+            }
+
+            moreItems.forEach(item => {
+                const row = moreItemsTableBody.insertRow();
+                row.insertCell().textContent = item.id;
+                row.insertCell().textContent = item.name;
+                
+                const actionsCell = row.insertCell();
+                const editBtn = document.createElement('button');
+                editBtn.innerHTML = '<i class="fas fa-edit"></i> Edit';
+                editBtn.classList.add('action-buttons');
+                editBtn.onclick = () => editMoreItem(item.id);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i> Delete';
+                deleteBtn.classList.add('action-buttons', 'delete');
+                deleteBtn.onclick = () => deleteMoreItem(item.id);
+
+                actionsCell.appendChild(editBtn);
+                actionsCell.appendChild(deleteBtn);
+            });
+        }
+
+        const moreItemFormContainer = document.getElementById('moreItemFormContainer');
+        const addMoreItemBtn = document.getElementById('addMoreItemBtn');
+        const moreItemForm = document.getElementById('moreItemForm');
+        const moreItemFormTitle = document.getElementById('moreItemFormTitle');
+        const saveMoreItemBtn = document.getElementById('saveMoreItemBtn');
+        const cancelMoreItemBtn = document.getElementById('cancelMoreItemBtn');
+
+        addMoreItemBtn.addEventListener('click', () => {
+            moreItemFormContainer.style.display = 'block';
+            moreItemFormTitle.textContent = 'Add';
+            moreItemForm.reset();
+            document.getElementById('moreItemId').value = '';
+        });
+
+        cancelMoreItemBtn.addEventListener('click', () => {
+            moreItemFormContainer.style.display = 'none';
+        });
+
+        moreItemForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const id = document.getElementById('moreItemId').value;
+            const name = document.getElementById('moreItemName').value.trim();
+
+            let moreItems = getMoreItems();
+
+            if (id) {
+                const index = moreItems.findIndex(item => item.id === id);
+                if (index > -1) {
+                    moreItems[index] = { id, name };
+                }
+            } else {
+                const newId = 'more' + Date.now();
+                moreItems.push({ id: newId, name });
+            }
+            saveMoreItems(moreItems);
+            moreItemFormContainer.style.display = 'none';
+            renderMoreItems();
+            alert('More Item saved successfully!');
+        });
+
+        function editMoreItem(id) {
+            const moreItems = getMoreItems();
+            const item = moreItems.find(i => i.id === id);
+            if (item) {
+                moreItemFormContainer.style.display = 'block';
+                moreItemFormTitle.textContent = 'Edit';
+                document.getElementById('moreItemId').value = item.id;
+                document.getElementById('moreItemName').value = item.name;
+            }
+        }
+
+        function deleteMoreItem(id) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                let moreItems = getMoreItems();
+                const updatedMoreItems = moreItems.filter(item => item.id !== id);
+                saveMoreItems(updatedMoreItems);
+                renderMoreItems();
+                alert('Item deleted!');
+            }
+        }
+
         function renderUsers() {
             const users = getUsers();
             const usersTableBody = document.querySelector('#usersTable tbody');
@@ -1065,16 +1358,15 @@
             });
         }
 
-        // --- Initial Load Logic ---
         document.addEventListener('DOMContentLoaded', function() {
             const initialSectionId = document.querySelector('.sidebar-nav a.active').dataset.section;
             renderContent(initialSectionId);
         });
 
-        // Initialize default restaurants and products if they don't exist
-        // This ensures the main website has data (and uses placehold.co by default)
         getRestaurants();
         getProducts();
+        getCategories();
+        getMoreItems();
     </script>
 </body>
 </html>

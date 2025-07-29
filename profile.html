@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* General Styles - Copied for consistency */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -24,7 +23,6 @@
             padding: 15px;
         }
 
-        /* Navbar Styles - Copied for consistency */
         .navbar {
             width: 100%;
             background: #fff;
@@ -44,7 +42,7 @@
 
         .location-select {
             padding: 6px 16px;
-            border-radius: 6px;
+            border-radius: 6mm;
             border: 1px solid #ddd;
             font-size: 15px;
             background: #f8f8f8;
@@ -72,7 +70,6 @@
             color: #ff6e40;
         }
 
-        /* Personal Header - Copied for consistency */
         .personal-header {
             background: #fff;
             border-bottom: 1px solid #eee;
@@ -114,11 +111,10 @@
             letter-spacing: 0.5px;
         }
 
-        /* Profile Page Specific Styles */
         .profile-main {
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align to top if content is short */
+            align-items: flex-start;
             min-height: calc(100vh - 200px);
             padding: 30px 0;
         }
@@ -136,7 +132,7 @@
 
         .profile-card h2 {
             margin-bottom: 30px;
-            color: #00a877; /* Green heading color */
+            color: #00a877;
             font-size: 32px;
             font-weight: 700;
         }
@@ -157,10 +153,10 @@
             width: 100%;
             max-width: 250px;
             padding: 12px 20px;
-            background-color: #e74c3c; /* Red for logout */
+            background-color: #e74c3c;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 8mm;
             font-size: 18px;
             font-weight: 600;
             cursor: pointer;
@@ -178,7 +174,6 @@
             transform: translateY(0);
         }
 
-        /* Footer Styles - Copied for consistency */
         .site-footer {
             background: #fff;
             border-top: 1px solid #eee;
@@ -214,7 +209,6 @@
             font-weight: 500;
         }
 
-        /* Go to Top Button - Copied for consistency */
         #goTopBtn {
             display: none;
             position: fixed;
@@ -237,7 +231,6 @@
             background: #333;
         }
 
-        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .navbar-left, .navbar-right {
                 margin: 0 10px;
@@ -364,10 +357,9 @@
     </button>
 
     <script>
-        // Function to update auth link based on login status
         function updateAuthLink() {
             const authLinkDiv = document.getElementById('authLink');
-            const loggedInUser = localStorage.getItem('loggedInUser'); // Get user from localStorage
+            const loggedInUser = localStorage.getItem('loggedInUser');
 
             if (loggedInUser) {
                 const user = JSON.parse(loggedInUser);
@@ -379,7 +371,6 @@
             }
         }
 
-        // Function to load profile data
         function loadProfile() {
             const loggedInUser = localStorage.getItem('loggedInUser');
             if (loggedInUser) {
@@ -392,14 +383,12 @@
             }
         }
 
-        // Logout functionality
         document.getElementById('logoutBtn').addEventListener('click', function() {
-            localStorage.removeItem('loggedInUser'); // Remove logged in user from localStorage
+            localStorage.removeItem('loggedInUser');
             alert('Aap logout ho chuke hain.');
             window.location.href = 'index.html';
         });
 
-        // Go to Top Button Visibility
         window.onscroll = function() {
             const btn = document.getElementById("goTopBtn");
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -409,7 +398,6 @@
             }
         };
 
-        // Call the functions when the page loads
         document.addEventListener('DOMContentLoaded', function() {
             updateAuthLink();
             loadProfile();
